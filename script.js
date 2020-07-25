@@ -1,10 +1,14 @@
 var startButton = document.querySelector("#start");
+var quizElement = document.querySelector(".main");
+var bodyEl = document.createElement('div');
 
+
+// This is for the Timer
 var startTime = 60;
 var secondsElapsed = 0;
 var interval;
 
-function startTimer() {
+function startQuiz() {
 
     setInterval(function () {
         const totalTime = startTime - secondsElapsed;
@@ -17,6 +21,12 @@ function startTimer() {
         }
 
     }, 1000);
+
+    quizElement.append(bodyEl);
+    quizElement.textContent = "First Question";
+
 }
 
-startButton.addEventListener("click", startTimer);
+
+
+startButton.addEventListener("click", startQuiz);
