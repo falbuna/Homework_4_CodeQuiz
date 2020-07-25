@@ -1,17 +1,22 @@
-const mainElement = document.getElementById("main");
+var startButton = document.querySelector("#start");
 
-function setTimer() {
+var startTime = 60;
+var secondsElapsed = 0;
+var interval;
 
-    let secondsLeft = 60;
+function startTimer() {
 
-    const timerInterval = setInterval(function() {
-       document.getElementById('timer').innerText = 'Timer: ' + secondsLeft;
-        secondsLeft--;
+    setInterval(function () {
+        const totalTime = startTime - secondsElapsed;
+        document.getElementById('timer').innerText = 'Timer: ' + totalTime;
 
-        if (count > 0) {
-            document.getElementById('timer').innerText = '';
+        secondsElapsed++;
+
+        if(totalTime <= 0) {
+            // stop
         }
+
     }, 1000);
 }
 
-setTimer();
+startButton.addEventListener("click", startTimer);
