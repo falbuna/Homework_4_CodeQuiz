@@ -5,13 +5,13 @@ const promptElement = document.querySelector('#prompt');
 const quizPrompt = document.createElement('h1');
 
 
-var Quizquestions = [
-    { q: 'How many versions of Bootstrap have currently been released?', a:['1. 1', '2. 2', '3. 3', '4. 4'], c: '4. 4'},
-    { q: 'Which company developed Javascript?', a:['1. Netscape', '2. Google', '3. Microsoft', '4. Amazon'], c: '4. Netscape'},
+const Quizquestions = [
+    { q: 'How many versions of Bootstrap have currently been released?', a:['1', '2', '3', '4'], c: '4' },
+    { q: 'Which company developed Javascript?', a:['Netscape', 'Google', 'Microsoft', 'Amazon'], c: 'Netscape' },
 ];
 
 // This is for the Timer
-var startTime = parseInt(60);
+var startTime = parseInt(75);
 var secondsElapsed = 0;
 
 function startQuiz() {
@@ -37,13 +37,15 @@ function startQuiz() {
 
     function renderQuiz(){
 
-        const question = Quizquestions[0].q;
+    // for (let j = 0; j < Quizquestions.length; j++){
+
+        var question = Quizquestions[0].q;
         promptElement.innerHTML = question;
         promptElement.appendChild(quizPrompt);
 
         quizElement.innerHTML = '';
         for (let i = 0; i < Quizquestions[0].a.length; i++){
-            const answers = Quizquestions[0].a[i];
+            var answers = Quizquestions[0].a[i];
             var li = document.createElement('li');
             var button = document.createElement("button");
             button.textContent = answers;
@@ -52,11 +54,20 @@ function startQuiz() {
         }
     }
 
-        // const correct = Quizquestions[0].c;
+    var answer = Quizquestions[0].c;
 
     quizElement.addEventListener('click', function(event) {
-        console.log("I've Been Clicked!")});
-    
+        event.preventDefault();
+        if(event.target.matches("button")){
+            var buttonTarget = event.target.textContent;
+            console.log(buttonTarget)
+        }if(answer === buttonTarget){
+            console.log("Correct Answer!")
+        }else(
+            console.log("Incorrect Answer!")
+        )
+    });
+
     renderQuiz();
 }
 

@@ -14,12 +14,12 @@ h1 {
     text-align: center;
 }
 
-ul {
-    list-style-type: none;
+ol {
+    list-style-type: decimal;
 }
 
 li {
-    list-style-type: none;
+    list-style-type: decimal;
 }
 
 li button {
