@@ -22,3 +22,10 @@ li {
     list-style-type: none;
 }
 
+li button {
+    height: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #4ecbf5;
+    color: white;
+}
