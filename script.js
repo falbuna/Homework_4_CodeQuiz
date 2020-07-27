@@ -5,14 +5,10 @@ const promptElement = document.querySelector('#prompt');
 const quizPrompt = document.createElement('h1');
 
 
-const prompt1 = {
-    'Question': 'How many versions of Bootstrap have been released?',
-    'Choices': ['1. 1', '2. 2', '3. 3', '4. 4']}
-
-const prompt2 = {
-    'Question': 'Which company developed Javascript?',
-    'Choices': ['1. Netscape', '2. Google', '3. Microsoft', '4. Amazon']}
-
+var Quizquestions = [
+    { q: 'How many versions of Bootstrap have currently been released?', a:['1. 1', '2. 2', '3. 3', '4. 4'], c: '4. 4'},
+    { q: 'Which company developed Javascript?', a:['1. Netscape', '2. Google', '3. Microsoft', '4. Amazon'], c: '4. Netscape'},
+];
 
 // This is for the Timer
 var startTime = parseInt(60);
@@ -41,27 +37,27 @@ function startQuiz() {
 
     function renderQuiz(){
 
-        const question = prompt1['Question'];
+        const question = Quizquestions[0].q;
         promptElement.innerHTML = question;
         promptElement.appendChild(quizPrompt);
 
         quizElement.innerHTML = '';
-        for (let i = 0; i < prompt1.Choices.length; i++){
-            var answers = prompt1.Choices[i];
+        for (let i = 0; i < Quizquestions[0].a.length; i++){
+            const answers = Quizquestions[0].a[i];
             var li = document.createElement('li');
             var button = document.createElement("button");
             button.textContent = answers;
             li.appendChild(button);
             quizElement.appendChild(li);
         }
-
     }
+
+        // const correct = Quizquestions[0].c;
 
     quizElement.addEventListener('click', function(event) {
         console.log("I've Been Clicked!")});
     
     renderQuiz();
-
 }
 
 startButton.addEventListener("click", startQuiz);
