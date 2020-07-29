@@ -15,15 +15,17 @@ h1 {
 }
 
 ol {
-    list-style-type: decimal;
+    list-style-type: none;
 }
 
 li {
-    list-style-type: decimal;
+    list-style-type: none;
 }
 
 li button {
+    text-align: left;
     height: 40px;
+    width: 100px;
     margin-top: 5px;
     margin-bottom: 5px;
     background-color: #4ecbf5;
